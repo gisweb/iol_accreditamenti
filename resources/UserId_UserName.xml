@@ -1,0 +1,52 @@
+<plominodatabase id="iol_accreditamenti">
+  <design>
+    <resource id="UserId_UserName" title="" type="Script (Python)"><![CDATA[## Script (Python) "UserId_UserName"
+##bind container=container
+##bind context=context
+##bind namespace=
+##bind script=script
+##bind subpath=traverse_subpath
+##parameters=
+##title=
+##
+from Products.CMFCore.utils import getToolByName
+from iol.document.plomino_utils import getOwner
+
+mt = getToolByName(context, 'portal_membership')
+
+utenti=dict()
+members = mt.listMembers()
+for member in members:
+    utenti[member.getUserName()]=member.getUserId()
+
+
+count=1
+for doc in context.getAllDocuments():
+    authors = doc.getItem('Plomino_Authors',[])
+    if len(authors)>0:
+        owner = utenti.get(authors[0],authors[0])
+        doc.setItem('iol_owner',owner)
+        if owner not in authors:
+            doc.setItem('Plomino_Authors',[owner]+authors)
+    
+        readers = doc.getItem('Plomino_Readers',[])
+        if owner not in readers:
+            doc.setItem('Plomino_Readers',[owner]+readers)        
+            
+        print doc.getId(),doc.getItem('Plomino_Authors',[]),doc.getItem('Plomino_Readers',[])
+    else:
+        print "AAAAAAAAAAAAAAAAAAAAAAAAAA "  + doc.getId()
+            
+    #print authors,utenti.get(authors[0],authors[0])
+    #owner = authors[0]
+    #member = mt.getMemberById(owner)
+    #if member 
+    #if not member:
+    #    print utenti.get(owner,'MANCAAAAAAAAAAAAAAAAAAAAAAAAAAAA %s' %owner),doc.getItem('iol_owner')
+    #print doc.getItem('iol_owner')
+    #if count==500:
+    #    break
+return printed
+]]></resource>
+  </design>
+</plominodatabase>

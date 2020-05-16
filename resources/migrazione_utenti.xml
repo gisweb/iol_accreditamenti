@@ -1,0 +1,97 @@
+<plominodatabase id="iol_accreditamenti">
+  <design>
+    <resource id="migrazione_utenti" title="" type="Folder">
+      <resource id="05ImportaDocumenti" title="" type="Script (Python)"><![CDATA[## Script (Python) "05ImportaDocumenti"
+##bind container=container
+##bind context=context
+##bind namespace=
+##bind script=script
+##bind subpath=traverse_subpath
+##parameters=
+##title=
+##
+for doc in context.getAllDocuments(): 
+    print doc.getId()
+    doc.setItem('Form','frm_accreditamento')
+    doc.setItem('iol_workflow','iol_accreditamenti_sue_wf')
+     ###### ATTENZIONE LO SCRIPT VA FATTO GIRARE COME ADMINISTATROT E NON COME ADMIN TO ZOPE
+     ###### AGGIORNARE IL WORKFLOW CON iol_accreditamenti_sue_wf ##################
+    doc.doAction('init')
+    doc.doAction('invia_domanda')
+
+return printed
+return 'ok'
+]]></resource>
+      <resource id="06RinominaDocumenti" title="" type="Script (Python)"><![CDATA[## Script (Python) "06RinominaDocumenti"
+##bind container=container
+##bind context=context
+##bind namespace=
+##bind script=script
+##bind subpath=traverse_subpath
+##parameters=
+##title=
+##
+from iol.document.plomino_utils import renameDocument
+
+######BOH DA RILANCIARE PIU VOLTE DOPO ASSEGNAZIONE MAIL##################
+for doc in context.getAllDocuments():
+    newId = str(doc.getItem('fisica_email').replace('.','-').replace('@','-').lower())
+    test = context.getDocument(newId)
+    if newId and not test:
+        print newId
+        renameDocument(doc, newId)
+        doc.setItem('iol_owner',doc.getItem('user_email'))
+        doc.setItem('importato','ok')
+     
+    else:
+        print "NNNNNNNNNNNNNNNNNNNNNNNNNNNNNN %s" %doc.id
+    
+
+####ALLA FINE VADO A CANCELLARE I DOCUMENTI CHE NON HANNO IL CAMPO IMPORTATO. SOLO ALLA FINE PERCHE LA PROCEDURA VA FATTA GIRAR + VOLTE
+return printed
+]]></resource>
+      <resource id="faqualcosa" title="" type="Script (Python)"><![CDATA[## Script (Python) "faqualcosa"
+##bind container=container
+##bind context=context
+##bind namespace=
+##bind script=script
+##bind subpath=traverse_subpath
+##parameters=
+##title=
+##
+from Products.CMFCore.utils import getToolByName
+#OPERAZIONE DA FARE PER IL PASSAGGIO DA USERNAME A EMAIL  (DA FAR GIRARE SUL VECCHIO SITO)
+
+members_tool = getToolByName(context, 'portal_membership')
+for doc in context.getAllDocuments():  
+    author = doc.getItem('Plomino_Authors',[])[0]
+    #user = members_tool.getMemberById(author)
+    #print doc.id, author, user.getProperty('email')
+    #doc.setItem('old_id',doc.getId())
+    #doc.setItem('user_id',author)
+    #doc.setItem('user_email',user.getProperty('email').lower())
+    print doc.getId(),author
+return printed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+doc=context.getDocument('panainofabio-libero-it')
+doc.setItem('fisica_email','panainofabio@libero.it')
+doc.setItem('Plomino_Authors',['fpanaino', 'panainofabio@libero.it'])
+doc.setItem('Plomino_Readers',['panainofabio@libero.it','praticaweb-readers'])
+doc.save(onSaveEvent=False)
+]]></resource>
+    </resource>
+  </design>
+</plominodatabase>

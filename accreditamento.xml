@@ -1,0 +1,43 @@
+<plominodatabase id="iol_accreditamenti">
+  <design>
+    <element id="accreditamento" title="Procedura di accreditamento" type="PlominoForm">
+      <id type="Products.Archetypes.Field.StringField">accreditamento</id>
+      <onCreateDocument type="Products.Archetypes.Field.TextField"><![CDATA[]]></onCreateDocument>
+      <onOpenDocument type="Products.Archetypes.Field.TextField"><![CDATA[]]></onOpenDocument>
+      <beforeSaveDocument type="Products.Archetypes.Field.TextField"><![CDATA[]]></beforeSaveDocument>
+      <onSaveDocument type="Products.Archetypes.Field.TextField"><![CDATA[]]></onSaveDocument>
+      <onDeleteDocument type="Products.Archetypes.Field.TextField"><![CDATA[]]></onDeleteDocument>
+      <onSearch type="Products.Archetypes.Field.TextField"><![CDATA[]]></onSearch>
+      <beforeCreateDocument type="Products.Archetypes.Field.TextField"><![CDATA[]]></beforeCreateDocument>
+      <FormLayout type="Products.Archetypes.Field.TextField"><![CDATA[
+<h3><strong><span style="text-align: justify; ">Essere registrati con un <i>nome utente</i> e una <i>password</i> non è sufficiente per presentare istanze. Per poter usufruire dei servizi online offerti da questo Portale è necessario aver completato anche la procedura di <b>accreditamento</b></span>.</strong></h3>
+<h3><strong> </strong></h3>
+<p class=" ">La registrazione al Portale di Istanze Online deve essere effettuata da persone fisiche, anche nel caso che agiscano, in forza di un titolo valido, in rappresentanza di altre persone fisiche o di persone giuridiche o in qualità di intermediari delegati alla trasmissione telematica delle istanze<strong>.</strong> Dal momento che le dichiarazioni rilasciate attraverso le modalità telematiche di questo Portale hanno valore legale, come previsto dal <b>CAD - Codice dell'Amministrazione Digitale</b>, la procedura di accreditamento (<b><span>che è necessario eseguire una sola volta</span></b>) è indispensabile determinare, attraverso una delle modalità ammesse dalla legge, l'identità del soggetto che utilizza l'applicazione e, di conseguenza, la provenienza certa delle istanze.</p>
+<h3><strong>Come procedere:</strong></h3>
+<p>Dopo aver effettuato l'accesso con nome utente/indirizzo e-mail e password è necessario procedere con l'accreditamento compilando l'apposito <a href="../frm_accreditamento"><strong>modulo</strong></a> in tutti suoi campi. </p>
+<p><strong> Per salvare la richiesta di accreditamento in compilazione è obbligatorio inserire tutti i dati richiesti contrassegnati dal colore rosso.</strong> Al termine, cliccando su <strong>"Salva</strong>", si genera automaticamente un documento <strong>.pdf </strong>scaricabile sul proprio dispositivo semplicemente cliccandoci sopra.</p>
+<p>Tale documento va firmato con <strong>firma digitale e ricaricato sul modulo di richiesta di accreditamento</strong>.<strong> Nella sezione apposita "Allegati: Documento firmato con firma digitale" cliccare sull'icona di upload per selezionare il file dal proprio dispositivo.<br></strong></p>
+<p>In seguito all'upload dei documenti richiesti, e salvando nuovamente il modulo in compilazione, viene <strong>abilitato l'invio della domanda</strong>.</p>
+<p>Da questo momento l'utente accreditato ha accesso ai servizi del Portale ed ha la possibilità di presentare istanze online.</p>
+<p><span class="internal-link"><a href="../istruzioni" target="_blank" title="">Per istruzioni dettagliate cliccare <strong>qui</strong></a>.</span> </p>
+<h3><a href="../frm_accreditamento">Vai al MODULO DI ACCREDITAMENTO</a></h3>
+]]></FormLayout>
+      <FormMethod type="Products.Archetypes.Field.TextField"><![CDATA[Auto]]></FormMethod>
+      <DocumentTitle type="Products.Archetypes.Field.TextField"><![CDATA[]]></DocumentTitle>
+      <DynamicDocumentTitle type="Products.Archetypes.Field.BooleanField">False</DynamicDocumentTitle>
+      <StoreDynamicDocumentTitle type="Products.Archetypes.Field.BooleanField">False</StoreDynamicDocumentTitle>
+      <DocumentId type="Products.Archetypes.Field.TextField"><![CDATA[]]></DocumentId>
+      <ActionBarPosition type="Products.Archetypes.Field.StringField">TOP</ActionBarPosition>
+      <HideDefaultActions type="Products.Archetypes.Field.BooleanField">False</HideDefaultActions>
+      <HideInMenu type="Products.Archetypes.Field.BooleanField">False</HideInMenu>
+      <isSearchForm type="Products.Archetypes.Field.BooleanField">False</isSearchForm>
+      <isPage type="Products.Archetypes.Field.BooleanField">True</isPage>
+      <SearchView type="Products.Archetypes.Field.StringField"/>
+      <SearchFormula type="Products.Archetypes.Field.TextField"><![CDATA[]]></SearchFormula>
+      <Position type="Products.Archetypes.Field.IntegerField"/>
+      <ResourcesJS type="Products.Archetypes.Field.TextField"><![CDATA[]]></ResourcesJS>
+      <ResourcesCSS type="Products.Archetypes.Field.TextField"><![CDATA[]]></ResourcesCSS>
+      <excludeFromNav type="Products.Archetypes.Field.BooleanField">False</excludeFromNav>
+    </element>
+  </design>
+</plominodatabase>

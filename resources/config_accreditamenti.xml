@@ -1,0 +1,21 @@
+<plominodatabase id="iol_accreditamenti">
+  <design>
+    <resource id="config_accreditamenti" title="" type="Script (Python)"><![CDATA[## Script (Python) "config_accreditamenti"
+##bind container=container
+##bind context=context
+##bind namespace=
+##bind script=script
+##bind subpath=traverse_subpath
+##parameters=
+##title=
+##
+dz = dict(
+#indirizzi per il modello di stampa
+comune_indirizzo_1 = "All'Unione dei Comuni Valmerula e Montarosio",
+comune_indirizzo_2 = "Via Cavour, 94",
+comune_indirizzo_3 = "17051 Andora (SV)",
+)
+return dz
+]]></resource>
+  </design>
+</plominodatabase>

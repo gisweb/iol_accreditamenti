@@ -1,0 +1,41 @@
+<plominodatabase id="iol_accreditamenti">
+  <design>
+    <resource id="UtentiAccreditati" title="" type="Script (Python)"><![CDATA[## Script (Python) "UtentiAccreditati"
+##bind container=container
+##bind context=context
+##bind namespace=
+##bind script=script
+##bind subpath=traverse_subpath
+##parameters=
+##title=
+##
+from Products.CMFCore.utils import getToolByName
+from iol.document.plomino_utils import getOwner
+
+mt = getToolByName(context, 'portal_membership')
+
+utenti=dict()
+members = mt.listMembers()
+for member in members:
+    utenti[member.getUserName()]=member.getProperty('email')
+
+
+count=1
+for doc in context.getAllDocuments():
+    author=doc.getItem('iol_owner')
+    print "%s %s;%s" %(doc.getItem('fisica_cognome'),doc.getItem('fisica_nome'),author)
+
+            
+    #print authors,utenti.get(authors[0],authors[0])
+    #owner = authors[0]
+    #member = mt.getMemberById(owner)
+    #if member 
+    #if not member:
+    #    print utenti.get(owner,'MANCAAAAAAAAAAAAAAAAAAAAAAAAAAAA %s' %owner),doc.getItem('iol_owner')
+    #print doc.getItem('iol_owner')
+    #if count==500:
+    #    break
+return printed
+]]></resource>
+  </design>
+</plominodatabase>
